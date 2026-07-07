@@ -92,6 +92,8 @@ export default function Column({
                   card={card}
                   index={index}
                   editCardId={editCardId}
+                  showDescription={showDescription}
+                  setShowDescription={setShowDescription}
                   cardTitle={cardTitle}
                   setCardTitle={setCardTitle}
                   cardDescription={cardDescription}
@@ -99,8 +101,7 @@ export default function Column({
                   handleCardEdit={handleCardEdit}
                   handleCardUpdate={handleCardUpdate}
                   deleteCardMutation={deleteCardMutation}
-                  showDescription={showDescription}
-                  setShowDescription={setShowDescription}
+                
                 />
               ))}
             {provided.placeholder}

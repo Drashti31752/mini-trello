@@ -5,14 +5,19 @@ import { Draggable } from "@hello-pangea/dnd";
 export default function Card({
   card,
   index,
+
   editCardId,
+
   cardTitle,
   setCardTitle,
   cardDescription,
   setCardDescription,
+
   handleCardEdit,
   handleCardUpdate,
+  
   deleteCardMutation,
+
   showDescription,
   setShowDescription,
 }) {

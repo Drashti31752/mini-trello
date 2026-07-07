@@ -1,12 +1,11 @@
 "use client";
 
 export default function AddColumnForm({
-  addColumn,
   columnName,
   setColumnName,
   handleSubmit,
 }) {
-  if (!addColumn) return null;
+
   return (
     <form onSubmit={handleSubmit} className="border p-6 rounded w-96 mt-4">
       <h1 className="text-2xl mb-4 text-blue-800">Add Column</h1>

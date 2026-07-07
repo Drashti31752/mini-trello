@@ -11,7 +11,7 @@ import useCardMutation from "./hooks/useCardMutation";
 import useDragDrop from "./hooks/useDragDrop";
 
 export default function Home() {
-  const [addColumn, setAddColumn] = useState(false);
+  const [addColumnForm, setAddColumnForm] = useState(false);
   const [columnName, setColumnName] = useState("");
   const [editId, setEditId] = useState(null);
   const [showDescription, setShowDescription] = useState(null);
@@ -21,6 +21,7 @@ export default function Home() {
   const [selectedColumn, setSelectedColumn] = useState(null);
   const [editCardId, setEditCardId] = useState(null);
   const [localCards, setLocalCards] = useState([]);
+
   const { columns } = useColumns();
   const { cards } = useCards();
 
@@ -31,7 +32,6 @@ export default function Home() {
   const { addMutation, editMutation, deleteMutation } = useColumnMutation({
     columnName,
     setColumnName,
-    setAddColumn,
     setEditId,
   });
 
@@ -99,17 +99,18 @@ export default function Home() {
       </h1>
 
       <button
-        onClick={() => setAddColumn(!addColumn)}
+        onClick={() => setAddColumnForm(!addColumnForm)}
         className="bg-blue-500 text-white px-4 py-2 rounded shadow-xl"
       >
         Add Column
       </button>
-      <AddColumnForm
-        addColumn={addColumn}
-        columnName={columnName}
-        setColumnName={setColumnName}
-        handleSubmit={handleSubmit}
-      />
+      {addColumnForm && (
+        <AddColumnForm
+          columnName={columnName}
+          setColumnName={setColumnName}
+          handleSubmit={handleSubmit}
+        />
+      )}
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="flex flex-wrap gap-4 mt-4">
           {columns.map((item) => (

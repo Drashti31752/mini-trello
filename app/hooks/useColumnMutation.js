@@ -5,7 +5,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 export default function useColumnMutation({
   columnName,
   setColumnName,
-  setAddColumn,
   setEditId,
 }) {
   const queryClient = useQueryClient();
@@ -29,7 +28,6 @@ export default function useColumnMutation({
     },
     onSuccess: () => {
       setColumnName("");
-      setAddColumn(false);
 
       queryClient.invalidateQueries({
         queryKey: ["columns"],
