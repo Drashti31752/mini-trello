@@ -30,7 +30,7 @@ export default function AddCardForm({
       />
 
       <textarea
-      
+        type="text"
         placeholder="Description"
         value={cardDescription}
         onChange={(e) => setCardDescription(e.target.value)}
