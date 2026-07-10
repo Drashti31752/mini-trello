@@ -26,7 +26,9 @@ export default function Home() {
   const { cards } = useCards();
 
   useEffect(() => {
-    setLocalCards(cards);
+    if (cards) {
+      setLocalCards(cards);
+    }
   }, [cards]);
 
   const { addMutation, editMutation, deleteMutation } = useColumnMutation({
@@ -53,6 +55,7 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     addMutation.mutate();
+    setAddColumnForm(false);
   };
   const { handleDragEnd } = useDragDrop({
     localCards,
